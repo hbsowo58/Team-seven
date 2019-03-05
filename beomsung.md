@@ -11,17 +11,20 @@
 따라 만들고 싶은 사이트의 태그 리스팅해오기 (필수)
 
 div
+<br></br>
 section 
 article table(tr, th)
 footer
 aside
 noscript
 svg
+<br></br>
 path
 figure
 figcaption
 ul
 span
+<br></br>
 img
 p
 br
@@ -76,8 +79,8 @@ tfoot(표의 꼬리)
 어떤 자바스크립트 라이브러리를 불러오는지를 조사해오기 (선택)
 
 
-jquery.min.js
-TweenMax.min.js
+jquery.min.js ,
+TweenMax.min.js , 
 salvattore.min.js
 <br></br>
 analytics.js (api)
