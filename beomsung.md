@@ -79,9 +79,9 @@ script (자바스크립트)
 어떤 자바스크립트 라이브러리를 불러오는지를 조사해오기 (선택)
 
 
-jquery.min.js ,
-TweenMax.min.js , 
-salvattore.min.js
+- <p>jquery.min.js</p> 
+- <p>TweenMax.min.js</p>  
+- <p>salvattore.min.js</p>
 <br></br>
 analytics.js (api)
 
