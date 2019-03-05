@@ -3,7 +3,7 @@
 어떤식으로 포트폴리오를 만들고 싶은지 목표 세우기
 
  
-- https://findawayer.github.io/
+- https://nykim.net/
 
 
 <h2> 오늘과제1 </h2>
@@ -71,6 +71,14 @@ br (강제 줄바꿈)
 thead(표의 머리)
 tbody(표의 본문)
 tfoot(표의 꼬리)
+
+<h4>오늘 과제3</h4>
+어떤 자바스크립트 라이브러리를 불러오는지를 조사해오기 (선택)
+
+
+jquery.min.js
+TweenMax.min.js
+
 
 
 
