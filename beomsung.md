@@ -11,20 +11,17 @@
 따라 만들고 싶은 사이트의 태그 리스팅해오기 (필수)
 
 - <strong>div</strong>
-<br></br>
-- section
+- <p>section</p>
 - <p> article table(tr, th)</p>
 - <p>footer</p>
 - <p>aside</p>
 - <p>noscript</p>
 - <p>svg</p>
-<br></br>
 - <p>path</p>
 - <p>figure</p>
 - <p>figcaption</p>
 - <p>ul</p>
 - <p>span</p>
-<br></br>
 - <p>img</p>
 - <p>p</p>
 - <p>br</p>
