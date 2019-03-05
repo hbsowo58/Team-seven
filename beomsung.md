@@ -12,9 +12,10 @@
 
 div
 <br></br>
-section 
-article table(tr, th)
-footer
+section
+<p> 
+article table(tr, th)</p>
+<strong>footer</strong>
 aside
 noscript
 svg
