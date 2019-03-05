@@ -10,11 +10,11 @@
 
 따라 만들고 싶은 사이트의 태그 리스팅해오기 (필수)
 
--<strong>div</strong>
+- <strong>div</strong>
 <br></br>
--section
--<p> article table(tr, th)</p>
--<p>footer</p>
+- section
+- <p> article table(tr, th)</p>
+- <p>footer</p>
 aside
 noscript
 svg
