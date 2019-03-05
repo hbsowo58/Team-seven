@@ -26,7 +26,7 @@
 - <p>p</p>
 - <p>br</p>
 - <p>thead,tbody,tfoot</p>
-- <p>script</p>
+- <p><strong>script</strong></p> 요소안에 요소넣기 = 중첩(nesting)
 
 
 <h3>오늘 과제2</h3>
