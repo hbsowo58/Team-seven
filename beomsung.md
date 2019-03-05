@@ -15,20 +15,21 @@
 - section
 - <p> article table(tr, th)</p>
 - <p>footer</p>
-aside
-noscript
-svg
+- <p>aside</p>
+- <p>noscript</p>
+- <p>svg</p>
 <br></br>
-path
-figure
-figcaption
-ul
-span
+- <p>path</p>
+- <p>figure</p>
+- <p>figcaption</p>
+- <p>ul</p>
+- <p>span</p>
 <br></br>
-img
-p
-br
-thead,tbody,tfoot
+- <p>img</p>
+- <p>p</p>
+- <p>br</p>
+- <p>thead,tbody,tfoot</p>
+- <p>script</p>
 
 
 <h3>오늘 과제2</h3>
@@ -74,6 +75,8 @@ br (강제 줄바꿈)
 thead(표의 머리)
 tbody(표의 본문)
 tfoot(표의 꼬리)
+
+script (자바스크립트)
 
 <h4>오늘 과제3</h4>
 어떤 자바스크립트 라이브러리를 불러오는지를 조사해오기 (선택)
