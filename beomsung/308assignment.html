@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset="UTF-8">
+    <title> Test</title>
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/script.js"></script>
+    <style>
+        .test_image2,.test_image3,.test_image4{
+            display: none;
+        }
+    </style>
+</head>
+
+
+
+<body>
+
+  <div>
+
+       <img class="test_image test_image1" src="instagram.png">
+       <img class="test_image test_image2" src="pinterest.png"> 
+       <img class="test_image test_image3" src="facebook.png"> 
+       <img class="test_image test_image4" src="twitter.png">  
+      
+  </div>   
+
+
+
+  <div>
+      <input type="button" name="btn10" value="버튼1" class = "btn1">
+  </div>
+  <div>
+      <input type="button" name="btn20" value="버튼2" class = "btn2" >
+  </div>
+  <div>
+      <input type="button" name="btn30" value="버튼3" class = "btn3" >
+  </div>
+  <div>
+      <input type="button" name="btn40" value="버튼4" class = "btn4">
+  </div>
+
+
+  <script type="text/javascript">
+    //$(요소).event(기능()) {할일} 기본양식  
+    
+    $( ".btn1" ).click(function(e) { // e는 자기가 조절가능한 부분
+     $(".test_image").hide();
+     $(".test_image1").show();
+    })
+
+    $( ".btn2" ).click(function(e) { 
+     $(".test_image").hide();
+     $(".test_image2").show();
+     })
+
+     $( ".btn3" ).click(function(e) { 
+     $(".test_image").hide();
+     $(".test_image3").show();
+     })
+
+     $( ".btn4" ).click(function(e) { 
+     $(".test_image").hide();
+     $(".test_image4").show();
+     }
+     )
+        //e.preventDefault();
+
+    //$(".test_image").toggle();
+        
+       
+       
+    /*    if ($(".test_image:visible").length){
+        $(".test_image:visible").hide();
+    } else {
+        
+        $(".test_image").show();
+    }*/
+
+</script>
+
+
+
+</body>
+</html>
+
+
