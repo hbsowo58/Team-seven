@@ -232,6 +232,270 @@
       bottom: 0;
       width: 100%;
     }
+
+    .card-columns {
+      -webkit-column-count: 2;
+      -moz-column-count:2;
+      column-count: 2;
+      column-gap:1.25em;
+      orphans:1;
+      widows: 1;
+    }
+
+    .update {
+      text-align: center;
+      color: #ccc;
+      font-size: 0.8em;
+      letter-spacing: 0.06em;
+    }
+
+    .copyright {
+      text-align: right;
+      color: #868686;
+      font-size: 1em;
+      margin: 0;
+      padding: 0;
+      border: 0;
+      vertical-align: baseline;
+      -webkit-text-size-adjust: none;
+      font-style: normal;
+    }
+    .t {
+      font-size: 54px;
+      padding-top: 1em;
+      display: table;
+      position: relative;
+      width: auto;
+      color: #8cddeb;
+      z-index: 1;
+      margin: 0 auto;
+      padding-top: 0.5em;
+      font-size: 60px;
+      font-weight: 700;
+      text-align: center;
+      transition: font-size .5s;
+    }
+    .t2 {
+      font-size: 15px;
+      margin: 0.5em 0 0;
+      color: #bfbfbf;
+      text-align: center;
+    }
+
+    .footer_bottom {
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1920px;
+      margin: 0 auto;
+      padding: 0.6em 1em;
+    }
+    .social_item .social_github{
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+    .footer .footer_address .footer_link:hover {
+      color: #ffcd47;
+      transition: color .2s ease-in-out;
+    }
+    .footer .footer_address .footer_link {
+      font-size: 16px;
+    }
+    .footer .footer_address .footer_link {
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      font-family: 'NotoSans', AppleGothic, sans-serif, Helvetica;
+      position: relative;
+      font-size: 20px;
+      color: #484848;
+      letter-spacing: 0.08rem;
+      align-items: center;
+      transition: color .2s ease-in-out;
+    }
+    a:link, a:visited, a:hover, a:active {
+      text-decoration: none;
+      font-family: 'Lato', 'LotteMartDream', AppleGothic, sans-serif, Helvetica;
+    }
+    .footer .footer_address .link_mail .icon_circle:before {
+      background-image: url("https://nykim.net/images/ico_mail.svg");
+      background-size: cover;
+      content: '';
+    }
+    .footer .footer_address .footer_link .icon_circle:before {
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 54%;
+      height: 54%;
+      transform: translateX(-50%) translateY(-50%);
+    }
+    .footer .footer_address .footer_link .icon_circle:after {
+      z-index: -1;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      box-shadow: 0 0.5em 0.938em #ccc;
+      content: '';
+    }
+    .footer .footer_address .footer_link .icon_circle:after {
+      z-index: -1;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      box-shadow: 0 0.5em 0.938em #ccc;
+      content: '';
+    }
+    .footer .footer_address .footer_link {
+      font-size: 16px;
+    }
+    .footer .footer_bottom {
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1920px;
+      margin: 0 auto;
+      padding: 0.6em 1em;
+    }
+    .footer .footer_address .link_phone {
+      margin-left: 2em;
+      text-align: justify;
+    }
+    .footer .footer_address .footer_link {
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      font-family: 'NotoSans', AppleGothic, sans-serif, Helvetica;
+      position: relative;
+      font-size: 20px;
+      color: #484848;
+      letter-spacing: 0.08rem;
+      align-items: center;
+      transition: color .2s ease-in-out;
+    }
+    a:link, a:visited, a:hover, a:active {
+      text-decoration: none;
+    }
+    a:-webkit-any-link {
+      cursor: pointer;
+    }
+    .footer .footer_bottom {
+      font-size: 15px;
+    }
+    .footer .footer_bottom .update {
+      color: #ccc;
+      font-size: 0.8em;
+      letter-spacing: 0.06em;
+    }
+    .footer .footer_bottom .social {
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+    }
+    .footer .footer_bottom .social .social_item {
+      overflow: hidden;
+      width: 1.6em;
+      height: 1.6em;
+      font-size: 14px;
+      text-indent: -999em;
+      margin-left: 1.3em;
+    }
+    .footer .footer_bottom .social .social_item.social_blog {
+      background-image: url(https://nykim.net/images/ico_blog.svg);
+      background-size: cover;
+    }
+    .footer .footer_bottom .social .social_item {
+      font-size: 12px;
+    }
+    .footer .footer_bottom .social .social_item {
+      overflow: hidden;
+      width: 1.6em;
+      height: 1.6em;
+      font-size: 14px;
+      text-indent: -999em;
+      margin-left: 1.3em;
+    }
+    .footer .footer_bottom .social .social_item.social_codepen {
+        background-image: url(https://nykim.net/images/ico_codepen.svg);
+        background-size: cover;
+    }
+    .footer .footer_bottom .social .social_item a {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+    .footer .footer_bottom .social .social_item.social_github {
+      background-image: url(https://nykim.net/images/ico_github.svg);
+      background-size: cover;
+    }
+    .footer .footer_address {
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      justify-content: center;
+      margin-top: 3em;
+      padding-bottom: 4.5em;
+      border-bottom: 1px solid #ddd;
+    }
+    .footer .footer_address .footer_link {
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      font-family: 'NotoSans', AppleGothic, sans-serif, Helvetica;
+      position: relative;
+      font-size: 20px;
+      color: #484848;
+      letter-spacing: 0.08rem;
+      align-items: center;
+      transition: color .2s ease-in-out;
+    }
+    .footer .footer_address .link_mail .icon_circle {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      position: relative;
+      background-color: #ff0;
+    }
+    .footer .footer_address .link_phone .icon_circle {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      position: relative;
+      background-color: #ff0;
+    }
+    .footer .footer_address .link_phone .icon_circle:before {
+      background-image: url("https://nykim.net/images/ico_phone.svg");
+      background-size: cover;
+      content: '';
+    }
   </style>
 </head>
 <body>
@@ -406,26 +670,34 @@
 
   </div>
 
-  <footer>
-    <p>sdfsdfds</p>
-    <p>sdfsdfds</p>
-    <p>sdfsdfds</p>
-    <p>sdfsdfds</p>
-    <p>sdfsdfds</p>
-    <p>sdfsdfds</p>
-    <p>sdfsdfds</p>
-    <p>sdfsdfds</p>
-    <p>sdfsdfds</p>
-    <p>sdfsdfds</p>
-    <p>sdfsdfds</p>
-    <p>sdfsdfds</p>
-    <p>sdfsdfds</p>
-    <p>sdfsdfds</p>
-    <p>sdfsdfds</p>
-    <p>sdfsdfds</p>
-    <p>sdfsdfds</p>
-    <p>sdfsdfds</p>
-    <p>sdfsdfds</p>
+  <footer class="footer">
+    <h2 class="t">Let´s start right Now!</h2>
+    <p class="t2">작업 준비 완료 했습니다. 편하실 때 연락주세요!</p>
+    <address class="footer_address">
+      <a href="mailto:nykim@nykim.net" class="footer_link link_mail">
+        <span class="icon_circle"></span>
+        <span class="footer_link_text">nykim@nykim.net</span>
+      </a>
+      <a href="tel:01027285936" class="footer_link link_phone">
+        <span class="icon_circle"></span>
+        <span class="footer_link_text">010-2728-5936</span>
+      </a>
+    </address>
+    <div class="footer_bottom">
+      <ul class="social">
+        <li class="social_item social_blog">
+          <a href="http://blog.naver.com/phlox__" target="_blank">blog</a>
+        </li>
+        <li class="social_item social_codepen">
+          <a href="https://codepen.io/nykim_/" target="_blank">codepen</a>
+        </li>
+        <li class="social_item social_github">
+          <a href="https://github.com/AnnYKim" target="_blank">github</a>
+        </li>
+      </ul>
+      <p class="update">Last Updated On June 3rd, 2018</p>
+      <p class="copyright">© 2018 NY KIM</p>
+    </div>
   </footer>
   
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
