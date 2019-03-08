@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>0308 과제 조항민</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      background-color: #00BA51;
+    }
+    .wrapper {
+      padding-top: 30px;
+      background-color: #FFF;
+    }
+    .wrapper h1 {
+      margin-bottom: 40px;
+      font-size: 35px;
+      color: #00BA51;
+      text-align: center;
+    }
+
+    .slide_wrap {
+      position: relative;
+      text-align: right;
+    }
+    .slide_wrap .slide_section {
+      position: absolute;
+      top: 68px;
+      right: 81px;
+    }
+    .slide_wrap .slide_section .step_img {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 207px;
+      -webkit-transition: opacity 1s;
+      -moz-transition: opacity 1s;
+      transition: opacity 1s;
+      opacity: 0;
+    }
+    .slide_wrap .slide_section .step_img.active {
+      opacity: 1;
+    }
+    .slide_wrap .phone_bg {
+      float: right;
+      position: relative;
+      z-index: 1;
+      width: 400px;
+    }
+
+    .step_wrap {
+      padding-left: 0;
+      list-style: none;
+    }
+    .step_wrap li {
+      position: relative;
+      min-height: 129px;
+      padding-left: 45px;
+      cursor: pointer;
+    }
+    .step_wrap .step_num {
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 30px;
+      height: 30px;;
+      color: #00BA51;
+      text-align: center;
+      line-height: 25px;
+      border: 2px solid #00BA51;
+      border-radius: 50%;
+      -webkit-transition: all 0.35s;
+      -moz-transition: all 0.35s;
+      transition: all 0.35s;
+    }
+    .step_wrap li.active .step_num,
+    .step_wrap li:hover .step_num {
+      color: #FFF;
+      background-color: #00BA51;
+    }
+    .step_wrap li .step_title {
+      -webkit-transition: all 0.35s;
+      -moz-transition: all 0.35s;
+      transition: all 0.35s;
+    }
+    .step_wrap li.active .step_title,
+    .step_wrap li:hover .step_title {
+      color: #00BA51;
+    }
+    .step_wrap .arrowdown_wrap {
+      display: inline-block;
+      position: absolute;
+      top: 35px;
+      left: 0;
+      width: 29px;
+      text-align: center;
+    }
+    @media (max-width: 767px) {
+      .step_wrap {
+        position: relative;
+        padding-bottom: 14px;
+      }
+      .step_wrap li {
+        display: inline-block;
+        float: left;
+        width: auto;
+        margin: 0 calc((100% - 120px) / 8);
+        min-height: 30px;
+        margin-bottom: 20px;
+        padding-left: 0;
+        text-align: center;
+      }
+      .step_wrap .step_num {
+        position: relative;
+        top: auto;
+        left: auto;
+      }
+      .step_wrap li .step_title {
+        display: none;
+      }
+      .step_wrap .arrowdown_wrap {
+        position: absolute;
+        top: -30px;
+        left: auto;
+        width: auto;
+        right: -55px;
+        transform: rotate(-90deg);
+      }
+      .step_wrap .step_explan {
+        display: none;
+      }
+      .mobile_text_wrap {
+        position: relative;
+        height: 120px;
+      }
+      .mobile_text {
+        position: absolute;
+        top: 20px;
+        left: 0;
+        width: 100%;
+        margin-bottom: 20px;
+        text-align: center;
+        opacity: 0;
+        -webkit-transition: all 0.35s;
+        -moz-transition: all 0.35s;
+        transition: all 0.35s;
+      }
+      .mobile_text.active {
+        opacity: 1;
+      }
+      .mobile_text .step_title {
+        color: #00BA51;
+      }
+      .slide_wrap {
+        text-align: center;
+      }
+      .slide_wrap .phone_bg {
+        float: none;
+        width: 300px;
+      }
+      .slide_wrap .slide_section {
+        top: 51px;
+        right: 166px;
+      }
+      .slide_wrap .slide_section .step_img {
+        width: 155px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="wrapper">
+    <h1>How It Works</h1>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 order-2 order-md-1">
+          <div class="slide_wrap">
+            <img class="phone_bg" src="grab_img/phone_bg.png" alt="phone_bg">
+            <div class="slide_section">
+              <img class="step_img step1_img active" src="grab_img/step1.jpg" alt="">
+              <img class="step_img step2_img" src="grab_img/step2.jpg" alt="">
+              <img class="step_img step3_img" src="grab_img/step3.jpg" alt="">
+              <img class="step_img step4_img" src="grab_img/step4.jpg" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 order-1 order-md-2">
+          <ul class="step_wrap">
+            <li class="step_item step1 active">
+              <span class="step_num">1</span>
+              <h5 class="step_title">Book in Just 2 Taps</h5>
+              <div class="arrowdown_wrap">
+                <img class="arrowdown" src="grab_img/arrowdown.png" alt="">
+              </div>
+              <p class="step_explan">Key in your pick-up and drop-off locations to get your estimated fare.</p>
+            </li>
+            <li class="step_item step2">
+              <span class="step_num">2</span>
+              <h5 class="step_title">Get a Driver</h5>
+              <div class="arrowdown_wrap">
+                <img class="arrowdown" src="grab_img/arrowdown.png" alt="">
+              </div>
+              <p class="step_explan">Grab will find you the nearest available driver.</p>
+            </li>
+            <li class="step_item step3">
+              <span class="step_num">3</span>
+              <h5 class="step_title">Track Your Driver</h5>
+              <div class="arrowdown_wrap">
+                <img class="arrowdown" src="grab_img/arrowdown.png" alt="">
+              </div>
+              <p class="step_explan">Know your driver’s location and estimated time of arrival in real-time.</p>
+            </li>
+            <li class="step_item step4">
+              <span class="step_num">4</span>
+              <h5 class="step_title">Arrive Safely</h5>
+              <p class="step_explan">Share your trip details with loved ones for added safety or even just to let them know you’re on your way.</p>
+            </li>
+          </ul>
+          <div class="mobile_text_wrap d-xs-block d-md-none">
+            <div class="mobile_text step1_mobile active">
+              <h5 class="step_title">Book in Just 2 Taps</h5>
+              <p class="step_explan">Key in your pick-up and drop-off locations to get your estimated fare.</p>
+            </div>
+            <div class="mobile_text step2_mobile">
+              <h5 class="step_title">Get a Driver</h5>
+              <p class="step_explan">Grab will find you the nearest available driver.</p>
+            </div>
+            <div class="mobile_text step3_mobile">
+              <h5 class="step_title">Track Your Driver</h5>
+              <p class="step_explan">Know your driver’s location and estimated time of arrival in real-time.</p>
+            </div>
+            <div class="mobile_text step4_mobile">
+              <h5 class="step_title">Arrive Safely</h5>
+              <p class="step_explan">Share your trip details with loved ones for added safety or even just to let them know you’re on your way.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    $(document).ready(function() {
+      $(".step_item").click(function(e) {
+        if (!$(this).hasClass("active")) {
+          $(".step_img").removeClass("active");
+          $(".step_item").removeClass("active");
+          $(".mobile_text").removeClass("active");
+          $(this).addClass("active");
+          var classes = $(this).attr('class');
+          var classeArr = classes.split(" ");
+          classeArr.splice(classeArr.indexOf("step_item"),1);
+          classeArr.splice(classeArr.indexOf("active"),1);
+          var img_class = classeArr.join('') + "_img";
+          $("." + img_class).addClass("active");
+          var mobile_class = classeArr.join('') + "_mobile";
+          $("." + mobile_class).addClass("active");
+        }
+      });
+    });
+  </script>
+  
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
