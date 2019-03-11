@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset="UTF-8">
+
+    <title> Title</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<form>
+섭씨 : <input type="number" id="c" ><br><div id="abc"></div><br>
+화씨 : <input type="number" id="d"> <br><div id="def"></div>
+</form>
+
+
+<input type="button" onclick="show()" value="메뉴">
+
+
+<input type="button" onclick="s()" value="메뉴2">
+
+<script type="text/javascript">
+
+
+function show() {
+    
+    var ce = Number(document.getElementById("c").value)
+    var ce1 =0;
+    // var fa = Number(document.getElementById("d").value)
+    var fa0 = 0;
+    
+    if(ce!==null){
+
+    fa0 =  ce*1.8+32
+ document.getElementById("abc").innerHTML = "화씨" +ce+ "는화씨"  +fa0 + "도입니다";
+    }
+}
+
+function s() {
+    
+
+    var fa = Number(document.getElementById("d").value)
+
+    var ce1 = (fa-32)/1.8
+
+    document.getElementById("def").innerHTML = "화씨" +fa+"는섭씨" +ce1 +"도입니다";
+}
+    
+//     else if(fa !== null){
+//     var ce1 = (fa-32)/1.8
+
+//     document.getElementById("def").innerHTML = "화씨" +fal+"는섭씨" +ce1 +"도입니다";
+// }
+//     else doucument.write("d")
+//  }
+
+
+         
+</script>
+
+</body>
+</html>
