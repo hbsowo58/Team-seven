@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset="UTF-8">
+    <title>Table Test</title>
+
+    <style>
+        /*
+        css를 사용할 떄 어떤 요소를 선택해서 어떤 스타일을 적용한다
+        이 떄 요소를 선택하는 방법을 셀렉터(요소 선택자)라고 부른다.
+        
+        기본선택자
+        1.태그(어트리뷰트 포함) 태그 이름만
+
+
+        2.아이디(애만 이것을 가져야함) : 아이디는 앞에 #을붙힘
+        #title{color:red;}
+        
+        3.클래스 (앞에 .을 붙힘)
+
+        .default_text{
+            font-size:2em;
+        }
+
+        아이디:타이틀
+        
+        클래스:디폴트_택스트 p_default 별명이 여러개
+
+
+        복합선택자
+
+        span.default_text =span태그인데 디폴트 텍스트라는 이름을 가진애는
+        
+        p.default_text.p_default(띄어쓰기 없는 것주의)
+
+
+
+        
+
+        b{
+	    border:1px solid red;
+        }*/
+
+
+        p{
+        border:1px solid #d5d5d5;
+    }
+
+    .default_text b{
+        border:1px solid red;
+    }
+
+    </style>
+
+</head>
+<body>
+    <p style="border:1px solid #d5d5d5">
+        문단 내용
+    </p>
+    <span class= "default_text"><b>예시</b>입니다.</span>
+    <b>밖에있는 b</b>
+    <table>
+        <tbody>
+            <tr>
+                <th>
+                    1
+                </th>
+                <th>2</th>
+                <th>3</th>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+
+

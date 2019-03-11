@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset="UTF-8">
+
+    <title> Title</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+        <script type="text/javascript">
+        i=0;
+        while(i<100){
+            console.log("HI");
+            break;
+        }
+
+        /*
+        break :만나는 순간 가장 가까운 반복문 탈출
+        
+        continue : 만나는 순간 반복문의 다음 회차로 이동
+        */
+
+        while(true){
+            console.log("메뉴");
+            console.log("1.숫자입력");
+            console.log("2.문자입력");
+            console.log("프로그램 종료");
+            menu = prompt("메뉴를 선택하세요","1");
+            if(menu=="1"){
+                console.log("숫자입력 시작");
+            } else if(menu=="2"){
+                console.log("문자입력 시작");
+            } else if(menu=="3"){
+                console.log("프로그램 종료");
+                break;
+            }
+
+        }
+
+</script>
+</body>
+</html>
+
+
