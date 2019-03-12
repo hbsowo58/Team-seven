@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>0312 과제</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+  <style>
+    .container {
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    @media (min-width: 768px) {
+      .container {
+        max-width: 750px;
+      }
+    }
+    @media (min-width: 992px) {
+      .container {
+        max-width: 970px;
+      }
+    }
+    @media (min-width: 1200px) {
+      .container {
+        max-width: 1170px;
+      }
+    }
+    .page-content {
+      position: relative;
+      height: 100%;
+    }
+    .login_wrap {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translateX(-50%) translateY(-50%); /* Chrome, Safari, Opera */
+      -moz-transform: translateX(-50%) translateY(-50%);
+      -ms-transform: translateX(-50%) translateY(-50%); /* IE 9 */
+      -o-transform: translateX(-50%) translateY(-50%);
+      transform: translateX(-50%) translateY(-50%);
+      width: calc(100% - 20px);
+      max-width: 330px;
+    }
+    .login_wrap .logo {
+      display: block;
+      margin: 0 auto;
+    }
+    .login_wrap h3,
+    .login_wrap p {
+      text-align: center;
+    }
+    .mdl-textfield {
+      width: 100%;
+    }
+    .login_wrap button {
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+      <div class="mdl-layout__header-row">
+        <span class="mdl-layout-title">FDS</span>
+        <nav class="mdl-navigation mdl-layout--large-screen-only">
+          <a class="mdl-navigation__link" href="home.html">Home</a>
+          <a class="mdl-navigation__link" href="album.html">Album</a>
+          <a class="mdl-navigation__link" href="dash_board.html">Dash Board</a>
+        </nav>
+        <div class="mdl-layout-spacer"></div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+          <label class="mdl-button mdl-js-button mdl-button--icon" for="fixed-header-drawer-exp">
+            <i class="material-icons">search</i>
+          </label>
+          <div class="mdl-textfield__expandable-holder">
+            <input class="mdl-textfield__input" type="text" name="sample" id="fixed-header-drawer-exp">
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="mdl-layout__drawer">
+      <span class="mdl-layout-title">FDS</span>
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href="home.html">Home</a>
+        <a class="mdl-navigation__link" href="album.html">Album</a>
+        <a class="mdl-navigation__link" href="dash_board.html">Dash Board</a>
+      </nav>
+    </div>
+    <main class="mdl-layout__content">
+      <div class="page-content">
+        <div class="login_wrap">
+          <img class="logo" src="https://storage.googleapis.com/spec-host/mio-staging/mio-design/1551224908801/static/m2/images/material_logo.svg" alt="Material Design">
+          <h3>Please sign in</h3>
+          <form action="#">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="email">
+              <label class="mdl-textfield__label" for="sample3">Email</label>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="password">
+              <label class="mdl-textfield__label" for="sample4">Password</label>
+            </div>
+            <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-2">
+              <input type="checkbox" id="checkbox-2" class="mdl-checkbox__input">
+              <span class="mdl-checkbox__label">Remember me</span>
+            </label>
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">Sign in</button>
+            <br>
+            <p>© 2017-2019</p>
+          </form>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+</body>
+</html>

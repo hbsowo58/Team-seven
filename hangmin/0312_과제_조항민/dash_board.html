@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>0312 과제</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'Material Icons';
+      font-style: normal;
+      font-weight: 400;
+      src: url(https://example.com/MaterialIcons-Regular.eot); /* For IE6-8 */
+      src: local('Material Icons'),
+        local('MaterialIcons-Regular'),
+        url(https://example.com/MaterialIcons-Regular.woff2) format('woff2'),
+        url(https://example.com/MaterialIcons-Regular.woff) format('woff'),
+        url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
+    }
+    .material-icons {
+      font-family: 'Material Icons';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;  /* Preferred icon size */
+      display: inline-block;
+      line-height: 1;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+
+      /* Support for all WebKit browsers. */
+      -webkit-font-smoothing: antialiased;
+      /* Support for Safari and Chrome. */
+      text-rendering: optimizeLegibility;
+
+      /* Support for Firefox. */
+      -moz-osx-font-smoothing: grayscale;
+
+      /* Support for IE. */
+      font-feature-settings: 'liga';
+    }
+    .container {
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    @media (min-width: 768px) {
+      .container {
+        max-width: 750px;
+      }
+    }
+    @media (min-width: 992px) {
+      .container {
+        max-width: 970px;
+      }
+    }
+    @media (min-width: 1200px) {
+      .container {
+        max-width: 1170px;
+      }
+    }
+    .dash_board_wrap {
+      padding: 35px 10px 10px;
+    }
+    .float-right {
+      float: right;
+    }
+    .chart {
+      height: 300px;
+    }
+    table {
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+      <div class="mdl-layout__header-row">
+        <span class="mdl-layout-title">FDS</span>
+        <nav class="mdl-navigation mdl-layout--large-screen-only">
+          <a class="mdl-navigation__link" href="home.html">Home</a>
+          <a class="mdl-navigation__link" href="album.html">Album</a>
+          <a class="mdl-navigation__link" href="dash_board.html">Dash Board</a>
+        </nav>
+        <div class="mdl-layout-spacer"></div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+          <label class="mdl-button mdl-js-button mdl-button--icon" for="fixed-header-drawer-exp">
+            <i class="material-icons">search</i>
+          </label>
+          <div class="mdl-textfield__expandable-holder">
+            <input class="mdl-textfield__input" type="text" name="sample" id="fixed-header-drawer-exp">
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="mdl-layout__drawer">
+      <span class="mdl-layout-title">FDS</span>
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href="home.html">Home</a>
+        <a class="mdl-navigation__link" href="album.html">Album</a>
+        <a class="mdl-navigation__link" href="dash_board.html">Dash Board</a>
+      </nav>
+    </div>
+    <main class="mdl-layout__content">
+      <div class="page-content">
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+          <div class="mdl-layout__drawer">
+            <nav class="mdl-navigation">
+              <a class="mdl-navigation__link" href="#"><i class="material-icons">home</i> Dashboard</a>
+              <a class="mdl-navigation__link" href="#"><i class="material-icons">insert_drive_file</i> Orders</a>
+              <a class="mdl-navigation__link" href="#"><i class="material-icons">shopping_cart</i> Products</a>
+              <a class="mdl-navigation__link" href="#"><i class="material-icons">people</i> Customers</a>
+              <a class="mdl-navigation__link" href="#"><i class="material-icons">bar_chart</i> Reports</a>
+              <a class="mdl-navigation__link" href="#"><i class="material-icons">widgets</i> Integrations</a>
+            </nav>
+          </div>
+          <main class="mdl-layout__content">
+            <div class="page-content">
+              <div class="dash_board_wrap">
+                <h3>Dashboard
+                  <div class="float-right">
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect">Share</button>
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect">Export</button>
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect"><i class="material-icons">calendar_today</i> This week <i class="material-icons">arrow_drop_down</i></button>
+                  </div>
+                </h3>
+                <hr>
+                <div class="chart"></div>
+                <h3>Section title</h3>
+                <hr>
+                <table class="mdl-data-table mdl-js-data-table">
+                  <thead>
+                    <tr>
+                      <th class="mdl-data-table__cell--non-numeric">#</th>
+                      <th class="mdl-data-table__cell--non-numeric">Header</th>
+                      <th class="mdl-data-table__cell--non-numeric">Header</th>
+                      <th class="mdl-data-table__cell--non-numeric">Header</th>
+                      <th class="mdl-data-table__cell--non-numeric">Header</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="mdl-data-table__cell--non-numeric">1,001</td>
+                      <td class="mdl-data-table__cell--non-numeric">Lorem</td>
+                      <td class="mdl-data-table__cell--non-numeric">ipsum</td>
+                      <td class="mdl-data-table__cell--non-numeric">dolor</td>
+                      <td class="mdl-data-table__cell--non-numeric">sit</td>
+                    </tr>
+                    <tr>
+                      <td class="mdl-data-table__cell--non-numeric">1,002</td>
+                      <td class="mdl-data-table__cell--non-numeric">amet</td>
+                      <td class="mdl-data-table__cell--non-numeric">consectetur</td>
+                      <td class="mdl-data-table__cell--non-numeric">adipiscing</td>
+                      <td class="mdl-data-table__cell--non-numeric">elit</td>
+                    </tr>
+                    <tr>
+                      <td class="mdl-data-table__cell--non-numeric">1,003</td>
+                      <td class="mdl-data-table__cell--non-numeric">Integer</td>
+                      <td class="mdl-data-table__cell--non-numeric">nec</td>
+                      <td class="mdl-data-table__cell--non-numeric">odio</td>
+                      <td class="mdl-data-table__cell--non-numeric">Praesent</td>
+                    </tr>
+                    <tr>
+                      <td class="mdl-data-table__cell--non-numeric">1,003</td>
+                      <td class="mdl-data-table__cell--non-numeric">libero</td>
+                      <td class="mdl-data-table__cell--non-numeric">Sed</td>
+                      <td class="mdl-data-table__cell--non-numeric">cursus</td>
+                      <td class="mdl-data-table__cell--non-numeric">ante</td>
+                    </tr>
+                    <tr>
+                      <td class="mdl-data-table__cell--non-numeric">1,004</td>
+                      <td class="mdl-data-table__cell--non-numeric">dapibus</td>
+                      <td class="mdl-data-table__cell--non-numeric">diam</td>
+                      <td class="mdl-data-table__cell--non-numeric">Sed</td>
+                      <td class="mdl-data-table__cell--non-numeric">nisi</td>
+                    </tr>
+                    <tr>
+                      <td class="mdl-data-table__cell--non-numeric">1,005</td>
+                      <td class="mdl-data-table__cell--non-numeric">Nulla</td>
+                      <td class="mdl-data-table__cell--non-numeric">quis</td>
+                      <td class="mdl-data-table__cell--non-numeric">sem</td>
+                      <td class="mdl-data-table__cell--non-numeric">at</td>
+                    </tr>
+                    <tr>
+                      <td class="mdl-data-table__cell--non-numeric">1,006</td>
+                      <td class="mdl-data-table__cell--non-numeric">nibh</td>
+                      <td class="mdl-data-table__cell--non-numeric">elementum</td>
+                      <td class="mdl-data-table__cell--non-numeric">imperdiet</td>
+                      <td class="mdl-data-table__cell--non-numeric">Duis</td>
+                    </tr>
+                    <tr>
+                      <td class="mdl-data-table__cell--non-numeric">1,007</td>
+                      <td class="mdl-data-table__cell--non-numeric">sagittis</td>
+                      <td class="mdl-data-table__cell--non-numeric">ipsum</td>
+                      <td class="mdl-data-table__cell--non-numeric">Praesent</td>
+                      <td class="mdl-data-table__cell--non-numeric">mauris</td>
+                    </tr>
+                    <tr>
+                      <td class="mdl-data-table__cell--non-numeric">1,008</td>
+                      <td class="mdl-data-table__cell--non-numeric">Fusce</td>
+                      <td class="mdl-data-table__cell--non-numeric">nec</td>
+                      <td class="mdl-data-table__cell--non-numeric">tellus</td>
+                      <td class="mdl-data-table__cell--non-numeric">sed</td>
+                    </tr>
+                    <tr>
+                      <td class="mdl-data-table__cell--non-numeric">1,009</td>
+                      <td class="mdl-data-table__cell--non-numeric">augue</td>
+                      <td class="mdl-data-table__cell--non-numeric">semper</td>
+                      <td class="mdl-data-table__cell--non-numeric">porta</td>
+                      <td class="mdl-data-table__cell--non-numeric">Mauris</td>
+                    </tr>
+                    <tr>
+                      <td class="mdl-data-table__cell--non-numeric">1,010</td>
+                      <td class="mdl-data-table__cell--non-numeric">massa</td>
+                      <td class="mdl-data-table__cell--non-numeric">Vestibulum</td>
+                      <td class="mdl-data-table__cell--non-numeric">lacinia</td>
+                      <td class="mdl-data-table__cell--non-numeric">arcu</td>
+                    </tr>
+                    <tr>
+                      <td class="mdl-data-table__cell--non-numeric">1,011</td>
+                      <td class="mdl-data-table__cell--non-numeric">eget</td>
+                      <td class="mdl-data-table__cell--non-numeric">nulla</td>
+                      <td class="mdl-data-table__cell--non-numeric">Class</td>
+                      <td class="mdl-data-table__cell--non-numeric">aptent</td>
+                    </tr>
+                    <tr>
+                      <td class="mdl-data-table__cell--non-numeric">1,012</td>
+                      <td class="mdl-data-table__cell--non-numeric">taciti</td>
+                      <td class="mdl-data-table__cell--non-numeric">sociosqu</td>
+                      <td class="mdl-data-table__cell--non-numeric">ad</td>
+                      <td class="mdl-data-table__cell--non-numeric">litora</td>
+                    </tr>
+                    <tr>
+                      <td class="mdl-data-table__cell--non-numeric">1,013</td>
+                      <td class="mdl-data-table__cell--non-numeric">torquent</td>
+                      <td class="mdl-data-table__cell--non-numeric">per</td>
+                      <td class="mdl-data-table__cell--non-numeric">conubia</td>
+                      <td class="mdl-data-table__cell--non-numeric">nostra</td>
+                    </tr>
+                    <tr>
+                      <td class="mdl-data-table__cell--non-numeric">1,014</td>
+                      <td class="mdl-data-table__cell--non-numeric">per</td>
+                      <td class="mdl-data-table__cell--non-numeric">inceptos</td>
+                      <td class="mdl-data-table__cell--non-numeric">himenaeos</td>
+                      <td class="mdl-data-table__cell--non-numeric">Curabitur</td>
+                    </tr>
+                    <tr>
+                      <td class="mdl-data-table__cell--non-numeric">1,015</td>
+                      <td class="mdl-data-table__cell--non-numeric">sodales</td>
+                      <td class="mdl-data-table__cell--non-numeric">ligula</td>
+                      <td class="mdl-data-table__cell--non-numeric">in</td>
+                      <td class="mdl-data-table__cell--non-numeric">libero</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </main>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+</body>
+</html>

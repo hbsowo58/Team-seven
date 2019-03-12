@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>0312 과제</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css" />
+  <style>
+    .container {
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    @media (min-width: 768px) {
+      .container {
+        max-width: 750px;
+      }
+    }
+    @media (min-width: 992px) {
+      .container {
+        max-width: 970px;
+      }
+    }
+    @media (min-width: 1200px) {
+      .container {
+        max-width: 1170px;
+      }
+    }
+    .slide {
+      height: 500px;
+      font-size: 50px;
+      text-align: center;
+      line-height: 500px;
+      background-color: rgb(119, 119, 119);
+    }
+    .slide_wrap .slick-prev {
+      left: 25px;
+      z-index: 10;
+    }
+    .slide_wrap .slick-next {
+      right: 25px;
+      z-index: 10;
+    }
+    .slide_wrap .slick-dots {
+      bottom: 25px;
+      z-index: 10;
+    }
+    .main_section {
+      padding: 50px 0;
+    }
+    .first_section .mdl-cell {
+      text-align: center;
+    }
+    .first_section .circle {
+      width: 140px;
+      height: 140px;
+      margin: 0 auto;
+      background-color: rgb(119, 119, 119);
+      border-radius: 50%;
+    }
+    .acticle_section .sample_img {
+      width: 100%;
+    }
+    .mdl-mini-footer {
+      background-color: #FFF;
+    }
+    .mdl-mini-footer .mdl-logo {
+      color: #5A5A5A;
+    }
+  </style>
+</head>
+<body>
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+      <div class="mdl-layout__header-row">
+        <span class="mdl-layout-title">FDS</span>
+        <nav class="mdl-navigation mdl-layout--large-screen-only">
+          <a class="mdl-navigation__link" href="home.html">Home</a>
+          <a class="mdl-navigation__link" href="album.html">Album</a>
+          <a class="mdl-navigation__link" href="dash_board.html">Dash Board</a>
+        </nav>
+        <div class="mdl-layout-spacer"></div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+          <label class="mdl-button mdl-js-button mdl-button--icon" for="fixed-header-drawer-exp">
+            <i class="material-icons">search</i>
+          </label>
+          <div class="mdl-textfield__expandable-holder">
+            <input class="mdl-textfield__input" type="text" name="sample" id="fixed-header-drawer-exp">
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="mdl-layout__drawer">
+      <span class="mdl-layout-title">FDS</span>
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href="home.html">Home</a>
+        <a class="mdl-navigation__link" href="album.html">Album</a>
+        <a class="mdl-navigation__link" href="dash_board.html">Dash Board</a>
+      </nav>
+    </div>
+    <main class="mdl-layout__content">
+      <div class="page-content">
+        <div class="slide_wrap">
+          <div class="slide">your content <a href="login.html" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">sign in</a></div>
+          <div class="slide">your content</div>
+          <div class="slide">your content</div>
+        </div>
+        <div class="main_wrap">
+          <div class="container">
+            <section class="main_section first_section">
+              <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--4-col mdl-cell--12-col-tablet">
+                  <div class="circle"></div>
+                  <h3>Heading</h3>
+                  <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+                  <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">View details »</button>
+                </div>
+                <div class="mdl-cell mdl-cell--4-col mdl-cell--12-col-tablet">
+                  <div class="circle"></div>
+                  <h3>Heading</h3>
+                  <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+                  <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">View details »</button>
+                </div>
+                <div class="mdl-cell mdl-cell--4-col mdl-cell--12-col-tablet">
+                  <div class="circle"></div>
+                  <h3>Heading</h3>
+                  <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+                  <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">View details »</button>
+                </div>
+              </div>
+            </section>
+            <hr>
+            <section class="main_section acticle_section">
+              <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--7-col mdl-cell--12-col-tablet">
+                  <h2>First featurette heading. It’ll blow your mind.</h2>
+                  <p>Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+                </div>
+                <div class="mdl-cell mdl-cell--5-col mdl-cell--12-col-tablet">
+                  <img class="sample_img" src="http://bioritmefestival.org/wp-content/uploads/2017/11/img-test.png">
+                </div>
+              </div>
+            </section>
+            <hr>
+            <section class="main_section acticle_section">
+              <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--7-col mdl-cell--12-col-tablet mdl-cell--order-2-desktop">
+                  <h2>First featurette heading. It’ll blow your mind.</h2>
+                  <p>Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+                </div>
+                <div class="mdl-cell mdl-cell--5-col mdl-cell--12-col-tablet mdl-cell--order-1-desktop">
+                  <img class="sample_img" src="http://bioritmefestival.org/wp-content/uploads/2017/11/img-test.png">
+                </div>
+              </div>
+            </section>
+            <hr>
+            <section class="main_section acticle_section">
+              <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--7-col mdl-cell--12-col-tablet">
+                  <h2>First featurette heading. It’ll blow your mind.</h2>
+                  <p>Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+                </div>
+                <div class="mdl-cell mdl-cell--5-col mdl-cell--12-col-tablet">
+                  <img class="sample_img" src="http://bioritmefestival.org/wp-content/uploads/2017/11/img-test.png">
+                </div>
+              </div>
+            </section>
+            <hr>
+            <footer class="mdl-mini-footer">
+              <div class="mdl-mini-footer__left-section">
+                <div class="mdl-logo">
+                  © 2017-2019 Company, Inc. · Privacy · Terms
+                </div>
+              </div>
+              <div class="mdl-mini-footer__right-section">
+                <a href="home.html">Back to top</a>
+              </div>
+            </footer>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('.slide_wrap').slick({
+        'autoplay': 'auto',
+        'dots': true
+      });
+    });
+  </script>
+  <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.0.1/jquery-migrate.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+</body>
+</html>
