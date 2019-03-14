@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ToDo List</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'Material Icons';
+      font-style: normal;
+      font-weight: 400;
+      src: url(https://example.com/MaterialIcons-Regular.eot); /* For IE6-8 */
+      src: local('Material Icons'),
+        local('MaterialIcons-Regular'),
+        url(https://example.com/MaterialIcons-Regular.woff2) format('woff2'),
+        url(https://example.com/MaterialIcons-Regular.woff) format('woff'),
+        url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
+    }
+    .material-icons {
+      font-family: 'Material Icons';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;  /* Preferred icon size */
+      display: inline-block;
+      line-height: 1;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+
+      /* Support for all WebKit browsers. */
+      -webkit-font-smoothing: antialiased;
+      /* Support for Safari and Chrome. */
+      text-rendering: optimizeLegibility;
+
+      /* Support for Firefox. */
+      -moz-osx-font-smoothing: grayscale;
+
+      /* Support for IE. */
+      font-feature-settings: 'liga';
+    }
+    .todo_wrap {
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+      padding-top: 50px;
+    }
+    .todo_wrap h1 {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .main_form {
+      margin-bottom: 10px;
+    }
+    .main_form .form-control {
+      width: calc(100% - 65.17px);
+      margin-right: 10px;
+      padding-left: 20px;
+    }
+    .list-group-item {
+      padding: 0 80px 0 0;
+    }
+    .empty_list {
+      padding-top: 1px;
+      padding-bottom: 1px;
+      border-radius: .25rem;
+    }
+    .badge {
+      position: absolute;
+      top: 50%;
+      -webkit-transform: translateY(-50%); /* Chrome, Safari, Opera */
+      -moz-transform: translateY(-50%);
+      -ms-transform: translateY(-50%); /* IE 9 */
+      -o-transform: translateY(-50%);
+      transform: translateY(-50%);
+      padding: .5em 0.6em;
+      cursor: pointer;
+    }
+    .close_btn,
+    .delete_btn {
+      right: 20px;
+    }
+    .save_btn,
+    .update_btn {
+      right: 50px;
+    }
+    .badge i {
+      font-size: 10px;
+    }
+    .update_input {
+      width: 395px;
+    }
+    .custom-checkbox {
+      margin-bottom: 0;
+      padding: .75rem 0 .75rem 1.25rem;
+      cursor: pointer;
+    }
+    .custom-control {
+      position: static;
+    }
+    .custom-control-label {
+      display: inline-block;
+      padding-left: 25px;
+      padding-right: 25px;
+      user-select: none;
+    }
+    .custom-control-label::before,
+    .custom-control-label::after {
+      left: 0;
+    }
+    .complete .custom-control-label {
+      color: #AAA;
+      text-decoration: line-through;
+    }
+    .empty_list p {
+      margin: 11px 20px;
+      color: #AAA;
+    }
+    .action_btn {
+      padding: 5px 0;
+    }
+    .action_btn > .row > div:nth-child(2) {
+      text-align: center;
+    }
+    .action_btn > .row > div:last-child {
+      text-align: right;
+    }
+    .action_btn .btn {
+      padding: 0;
+      color: #AAA;
+      font-size: 12px;
+      background-color: transparent;
+      border: 0;
+      border-radius: 0;
+    }
+    .action_btn .btn-light:focus,
+    .action_btn .btn-light.focus,
+    .action_btn .btn-light:hover,
+    .action_btn .btn-light:active,
+    .action_btn .btn-light.active,
+    .action_btn .btn-group:not(.btn-group-toggle) .btn-light:not(:disabled):not(.disabled).active,
+    .action_btn .btn-group:not(.btn-group-toggle) .btn-light:not(:disabled):not(.disabled):active {
+      color: #AAA;
+      background-color: transparent;
+      border: 0;
+      box-shadow: none;
+      outline: none;
+    }
+    .btn-group-toggle .btn {
+      padding: 0 10px;
+      cursor: pointer;
+    }
+    .checkbox_control {
+      cursor: pointer;
+    }
+    .sample_list,
+    .update_form,
+    .action_btn .all_cancel {
+      display: none;
+    }
+    .update_form {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+      padding: 5px 10px;
+      background-color: #FFF;
+    }
+    .modal .form-group,
+    .modal .form-inline .form-control {
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="todo_wrap">
+      <h1>TODO</h1>
+      <form class="form-inline main_form" action="#" method="post">
+        <input type="text" class="form-control" id="todo_input" placeholder="what need to be done?">
+        <button type="submit" class="btn btn-dark">Add</button>
+      </form>
+      <ul class="list-group">
+        <li class="list-group-item empty_list" id="empty_list">
+          <p>empty</p>
+        </li>
+        <li class="list-group-item sample_list">
+          <label class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input">
+            <span class="custom-control-label"></span>
+          </label>
+          <div class="form-inline update_form" action="#" method="post">
+            <input type="text" class="form-control update_input">
+            <span class="badge badge-dark badge-pill save_btn">
+              <i class="material-icons">save</i>
+            </span>
+            <span class="badge badge-secondary badge-pill close_btn">
+              <i class="material-icons">close</i>
+            </span>
+          </div>
+          <span class="badge badge-dark badge-pill update_btn">
+            <i class="material-icons">create</i>
+          </span>
+          <span class="badge badge-secondary badge-pill delete_btn">
+            <i class="material-icons">delete</i>
+          </span>
+        </li>
+      </ul>
+      <div class="action_btn">
+        <div class="row">
+          <div class="col-6 col-sm-3 order-2 order-sm-1">
+            <div class="btn-group" role="group">
+              <button type="button" class="btn btn-light checkbox_control">
+                All <span class="all_completed">completed</span><span class="all_cancel">cancel</span>
+              </button>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 order-1 order-sm-2">
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <label class="btn btn-light active">
+                <input type="radio" name="options" id="all_show" autocomplete="off" checked> All
+              </label>
+              <label class="btn btn-light">
+                <input type="radio" name="options" id="active_show" autocomplete="off"> Active
+              </label>
+              <label class="btn btn-light">
+                <input type="radio" name="options" id="completed_show" autocomplete="off"> Completed
+              </label>
+            </div>
+          </div>
+          <div class="col-6 col-sm-3 order-3">
+            <div class="btn-group" role="group">
+              <button type="button" class="btn btn-light all_delete">All delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script>
+    $(function() {
+      $('form').submit(function(e) {
+        e.preventDefault();
+        var list_value = $("#todo_input").val();
+        var list_item = $(".sample_list").clone();
+        list_item.removeClass("sample_list");
+        list_item.find(".update_input").val(list_value);
+        list_item.find(".custom-control-label").text(list_value);
+        $('.list-group').append(list_item);
+        if ($('.list-group-item').length > 1) {
+          $("#empty_list").hide();
+        }
+        $('#todo_input').val("");
+      });
+
+      $(document).on('click', '.custom-control-input', function() {
+        if ($(this).is(":checked")) {
+          $(this).parents(".list-group-item").addClass('complete');
+        } else {
+          $(this).parents(".list-group-item").removeClass('complete');
+        }
+
+        if ($('.list-group-item:not(.empty_list):not(.sample_list) .custom-control-input:checked').length == $(".list-group-item:not(.empty_list):not(.sample_list)").length) {
+          $(".checkbox_control").addClass("all_check");
+          $(".all_completed").hide();
+          $(".all_cancel").show();
+        } else {
+          $(".checkbox_control").removeClass("all_check");
+          $(".all_completed").show();
+          $(".all_cancel").hide();
+        }
+      });
+
+      $(document).on('click', '.delete_btn', function() {
+        $(this).parent().remove();
+        if ($('.list-group-item').length < 3) {
+          $("#empty_list").show();
+        }
+      });
+
+      $(document).on('click', '.checkbox_control', function () {
+        if (!($(this).hasClass("all_check"))) {
+          $('.list-group-item:not(.empty_list):not(.sample_list) .custom-control-input').each(function () {
+            $(this).prop('checked', true); //checked 처리
+            $(this).parents(".list-group-item").addClass("complete");
+          });
+          $(this).addClass("all_check");
+          $(this).children(".all_completed").hide();
+          $(this).children(".all_cancel").show();
+        } else {
+          $('.list-group-item:not(.empty_list):not(.sample_list) .custom-control-input').each(function () {
+            $(this).prop('checked', false); //checked 처리
+            $(this).parents(".list-group-item").removeClass("complete");
+          });
+          $(this).removeClass("all_check");
+          $(this).children(".all_completed").show();
+          $(this).children(".all_cancel").hide();
+        }
+      });
+
+      $(document).on('click', '.all_delete', function () {
+        $(".list-group-item:not(.empty_list):not(.sample_list)").remove();
+        $("#empty_list").show();
+        $('.custom-control-input').each(function () {
+          $(this).prop('checked', false); //checked 처리
+          $(this).parents(".list-group-item").removeClass("complete");
+        });
+      });
+
+      $(document).on('click', '.btn-group-toggle .btn', function () {
+        if ($(this).children('input').attr("id") == "all_show") {
+          $(".list-group-item:not(.empty_list):not(.sample_list)").show();
+          if ($(".list-group-item:not(.empty_list):not(.sample_list)").length < 1) {
+            $("#empty_list").show();
+          } else {
+            $("#empty_list").hide();
+          }
+        } else if ($(this).children('input').attr("id") == "active_show") {
+          $(".list-group-item:not(.empty_list):not(.sample_list):not(.complete)").show();
+          $(".list-group-item.complete").hide();
+          if ($(".list-group-item:not(.empty_list):not(.sample_list):not(.complete)").length < 1) {
+            $("#empty_list").show();
+          } else {
+            $("#empty_list").hide();
+          }
+        } else if ($(this).children('input').attr("id") == "completed_show") {
+          $(".list-group-item.complete").show();
+          $(".list-group-item:not(.empty_list):not(.sample_list):not(.complete)").hide();
+          if ($('.list-group-item.complete').length < 1) {
+            $("#empty_list").show();
+          } else {
+            $("#empty_list").hide();
+          }
+        }
+      });
+
+      $(document).on('click', '.update_btn', function () {
+        $(this).prev().css('display', 'flex');
+      });
+
+      $(document).on('click', '.close_btn', function () {
+        $(this).parent().find('.update_input').val($(this).parent().prev().find(".custom-control-label").text());
+        $(this).parent().hide();
+      });
+
+      $(document).on('click', '.save_btn', function () {
+        $(this).parent().prev().find(".custom-control-label").text($(this).parent().find('.update_input').val());
+        $(this).parent().hide();
+      });
+    });
+  </script>
+</body>
+</html>
