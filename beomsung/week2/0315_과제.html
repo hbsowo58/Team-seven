@@ -4,15 +4,14 @@
 <head>
   <meta charset="UTF-8">
   <title> LOTTO </title>
-  <link rel="stylesheet" href="./lt.css" type="text/css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="./lt.css" type="text/css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script type="text/javascript">
     $(document).ready(function () {
       $('form').submit(function (e) {
         e.preventDefault();
-        // $("input[class='list']").val("");
         document.getElementById("userForm").innerHTML = '';
         var times = Number($('.time').val());
         for (var i = 0; i < times; i++) {
@@ -29,50 +28,66 @@
           }
           numbers.sort(function (a, b) { return a - b });
 
-          $('ul').append("<li>" +numbers+  "</li>");
-          
-          
-          
-
+          $('ul').append("<li class='list-group-item'>" + numbers + "</li>");
         }
       });
     });
-
-
-
+    function PrintElem(elem) {
+      Popup($(elem).html());
+    }
+    function Popup(data) {
+      var mywindow = window.open('', 'mydiv', 'height=400,width=600');
+      mywindow.document.write('<html><head><title>mydiv</title>');
+      mywindow.document.write('</head><body >');
+      mywindow.document.write(data);
+      mywindow.document.write('</body></html>');
+      mywindow.document.close();
+      mywindow.focus();
+      mywindow.print();
+      mywindow.close();
+      return true;
+    }
   </script>
-
 </head>
 
-
 <body>
+  <form class="form-inline">
+    <select class="time">
+      <option>원하는 장수를 선택하세요 </option>
+      <option value="1">1장 - 1000원 </option>
+      <option value="2">2장 - 2000원 </option>
+      <option value="3">3장 - 3000원 </option>
+      <option value="4">4장 - 4000원 </option>
+      <option value="5">5장 - 5000원 </option>
+    </select>
+    <!-- <label class="sr-only" for="inlineFormInputName2">Name</label>
+    <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Jane Doe">
 
-  <select class="time">
-    <option>원하는 장수를 선택하세요  </option>
-    <option value="1">1장 - 1000원  </option>
-    <option value="2">2장 - 2000원  </option>
-    <option value="3">3장 - 3000원  </option> <!-- for문으로 구성가능-->
-    <option value="4">4장 - 4000원  </option>
-    <option value="5">5장 - 5000원  </option>
+    <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+    <div class="input-group mb-2 mr-sm-2">
+      <div class="input-group-prepend">
+        <div class="input-group-text">@</div>
+      </div>
+      <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Username">
+    </div>
 
-    <!-- <option>만원</option>
-        <option>최대 십만원</option> -->
+    <div class="form-check mb-2 mr-sm-2">
+      <input class="form-check-input" type="checkbox" id="inlineFormCheck">
+      <label class="form-check-label" for="inlineFormCheck">
+        Remember me
+      </label> -->
+    </div>
 
-
-
-  </select>
-
-  <form>
-    <input type="submit" value="뽑기">
+    <button type="submit" class="btn btn-primary mb-2">뽑기</button>
+    <input type="button" class="btn btn-primary mb-2" value="프린트" onclick="PrintElem($('.mydiv'))" ;>
   </form>
 
-  <ul id="userForm">
 
-  </ul>
-  <div class="money">
+  <div class="mydiv">
+    <ul id="userForm" class="list-group">
 
+    </ul>
   </div>
-
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -83,10 +98,6 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
-
-  <script type="text/javascript">
-
-  </script>
 </body>
 
 </html>
