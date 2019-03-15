@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Lotto Generator</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'Material Icons';
+      font-style: normal;
+      font-weight: 400;
+      src: url(https://example.com/MaterialIcons-Regular.eot); /* For IE6-8 */
+      src: local('Material Icons'),
+        local('MaterialIcons-Regular'),
+        url(https://example.com/MaterialIcons-Regular.woff2) format('woff2'),
+        url(https://example.com/MaterialIcons-Regular.woff) format('woff'),
+        url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
+    }
+    .material-icons {
+      font-family: 'Material Icons';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;  /* Preferred icon size */
+      display: inline-block;
+      line-height: 1;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+
+      /* Support for all WebKit browsers. */
+      -webkit-font-smoothing: antialiased;
+      /* Support for Safari and Chrome. */
+      text-rendering: optimizeLegibility;
+
+      /* Support for Firefox. */
+      -moz-osx-font-smoothing: grayscale;
+
+      /* Support for IE. */
+      font-feature-settings: 'liga';
+    }
+    .lotto_wrap {
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+      padding-top: 50px;
+    }
+    .lotto_wrap h1 {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .main_form {
+      margin-bottom: 10px;
+    }
+    .main_form .form-control {
+      width: calc(100% - 152px);
+      margin-right: 10px;
+      padding-left: 20px;
+    }
+    .btn-secondary {
+      margin-left: 10px;
+    }
+    .table td, .table th {
+      width: 14.28571428571429%;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="lotto_wrap">
+      <h1>로또 생성기</h1>
+      <form class="form-inline main_form" action="#" method="post">
+        <select class="form-control" id="times_select">
+          <option value="1">1장 - 1,000원</option>
+          <option value="2">2장 - 2,000원</option>
+          <option value="3">3장 - 3,000원</option>
+          <option value="4">4장 - 4,000원</option>
+          <option value="5">5장 - 5,000원</option>
+        </select>
+        <button type="submit" class="btn btn-dark">생성</button>
+        <button type="button" class="btn btn-secondary">프린트</button>
+      </form>
+      <div id="print">
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th scope="col">게임</th>
+              <th scope="col">1</th>
+              <th scope="col">2</th>
+              <th scope="col">3</th>
+              <th scope="col">4</th>
+              <th scope="col">5</th>
+              <th scope="col">6</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="empty_tr">
+              <td scope="row" colspan="7">생성 버튼을 눌러주세요</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script>
+    $(function() {
+      $('form').submit(function(e) {
+        e.preventDefault();
+        $("tbody > *").remove();
+        var times = Number($('#times_select').val());
+        for (var i = 0; i < times; i++) {
+          var original_numbers = [];
+          for (var k = 1; k < 46; k++) {
+            original_numbers.push(k);
+          }
+
+          var numbers = [];
+          for (var l = 0; l < 6; l++) {
+            var number_index = Math.floor((Math.random() * original_numbers.length));
+            var get_number = original_numbers[number_index];
+            numbers.push(get_number);
+            original_numbers.splice(number_index, 1);
+          }
+          numbers.sort(function(a, b){return a-b})
+          console.log(numbers);
+          $("tbody").append("<tr><th scope='row'>" + (Number(i) + 1) + "</th><td>" + numbers.join("</td><td>") + "</td></tr>");
+        }
+      });
+
+      $(document).on("click", ".btn-secondary", function() {
+        var divToPrint = $('#print');
+        var newWin = window.open('','Print-Window');
+        newWin.document.open();
+        newWin.document.write('<html><head><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></head><body onload="window.print()">'+divToPrint.html()+'</body></html>');
+        newWin.document.close();
+        setTimeout(function(){newWin.close();},10);
+      });
+    });
+  </script>
+</body>
+</html>
