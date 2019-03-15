@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title> LOTTO </title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+    <script type="text/javascript">
+
+
+        //console.log(Math.random())  // 0~1 사이의 숫자를 랜덤  
+
+
+    //     for (i = 0; i < 5; i++) {
+    //         var numbers = [];
+
+    //         while(numbers.length<6){
+    //             var number = Math.floor((Math.random() * 45) + 1);
+    //             if (numbers.indexOf(number == -1)) {
+    //                 numbers.push(number);
+    //             }
+    //         }
+            
+    //     numbers.sort(function(a,b){return a-b});
+    //     console.log(numbers);
+    //    }
+// mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+
+       for(j=0;j<5;j++){
+           var original_numbers = [];
+           for(i=1;i<46;i++){
+               original_numbers.push(i);
+           }
+       
+       var numbers=[];
+       
+       for(i=0;i<6;i++){
+        var number_index = Math.floor((Math.random()*original_numbers.length));
+        
+        var get_number = original_numbers[number_index];
+        numbers.push(get_number);
+        original_numbers.splice(number_index,1);
+       }
+       numbers.sort(function(a,b){return a-b});
+       console.log(numbers);
+       console.log("뽑힌 번호" +get_number);
+    }
+    
+
+
+
+
+        // numbers.push(Math.floor((Math.random() * 45) + 1))
+        // numbers.push(Math.floor((Math.random() * 45) + 1))
+        // numbers.push(Math.floor((Math.random() * 45) + 1))
+        // numbers.push(Math.floor((Math.random() * 45) + 1))
+        // numbers.push(Math.floor((Math.random() * 45) + 1))
+        // numbers.push(Math.floor((Math.random() * 45) + 1))
+
+//1~45 사이의 정수를 뽑아주는 코드 floor (내림)
+
+    // let single = numbers.reduce(( a, b ) => {
+	// if( a.indexOf(b) < 0 ) a.push(b) ;
+	// return a ;
+    // }, []) ; // <-- 초기값 빈 배열 세팅!           중복만 제거 (6개가 5개로 줄어듬)
+
+    // console.log( single ) ;
+
+
+    // function uniqueArray(numbers) {
+
+    //     var number = numbers.slice();
+
+    //     for (var i = 0; i < number.length; i++) {
+
+    //         if (typeof number[number[i]] == 'undefined') {
+
+    //             number[number[i]] = 1;
+
+    //         }
+
+    //     }
+
+    //     number.length = 0;
+
+    //     for (var i in number) {
+
+    //         number[number.length] = i;
+
+    //     }
+
+    //     return number;
+
+    // }
+
+    // // console.log(numbers);
+    // console.log(uniqueArray(numbers));
+
+
+
+
+    </script>
+
+</head>
+
+
+<body>
+    <!-- 
+         로또 번호는 1~45까지의 정수 중에서 중복되지 않는 숫자 6개를 뽑는 게임
+
+         로또 용지 1장은 최대 5게임을 표현 할 수 있습니다.
+        1게임은 1,000원 최대 1장은 5,000원
+
+        1)로또 번호 1게임을 뽑게 해준다.
+        2)로또 번호 5게임을 뽑게 해준다.
+        3)로또 번호를 지정된 게임 수 만큼 뽑게 해준다.
+        4)지정된 게임 수만큼 뽑고, 비용을 함께 출력한다.
+
+
+
+        -->
+
+        <select class="form-control form-control-lg">
+            <option>원하는 장수를 선택하세요</option>
+            <option>1장</option>
+            <option>2장</option>
+            <option>3장</option>  <!-- for문으로 구성가능-->
+            <option>4장</option>
+            <option>5장</option>
+
+            <option>만원</option>
+            <option>최대 십만원</option>
+          </select>
+    
+    <input type="submit" value="뽑기" class="bu1">
+
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
+
+
+
+    <script type="text/javascript">
+
+    </script>
+</body>
+
+</html>
