@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title> LOTTO </title>
+  <link rel="stylesheet" href="./lt.css" type="text/css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $('form').submit(function (e) {
+        e.preventDefault();
+        // $("input[class='list']").val("");
+        document.getElementById("userForm").innerHTML = '';
+        var times = Number($('.time').val());
+        for (var i = 0; i < times; i++) {
+          var original_numbers = [];
+          for (var j = 1; j < 46; j++) {
+            original_numbers.push(j);
+          }
+          var numbers = [];
+          for (var z = 0; z < 6; z++) {
+            var number_index = Math.floor((Math.random() * original_numbers.length));
+            var get_number = original_numbers[number_index];
+            numbers.push(get_number);
+            original_numbers.splice(number_index, 1);
+          }
+          numbers.sort(function (a, b) { return a - b });
+
+          $('ul').append("<li>" +numbers+  "</li>");
+          
+          
+          
+
+        }
+      });
+    });
+
+
+
+  </script>
+
+</head>
+
+
+<body>
+
+  <select class="time">
+    <option>원하는 장수를 선택하세요  </option>
+    <option value="1">1장 - 1000원  </option>
+    <option value="2">2장 - 2000원  </option>
+    <option value="3">3장 - 3000원  </option> <!-- for문으로 구성가능-->
+    <option value="4">4장 - 4000원  </option>
+    <option value="5">5장 - 5000원  </option>
+
+    <!-- <option>만원</option>
+        <option>최대 십만원</option> -->
+
+
+
+  </select>
+
+  <form>
+    <input type="submit" value="뽑기">
+  </form>
+
+  <ul id="userForm">
+
+  </ul>
+  <div class="money">
+
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
+  <script type="text/javascript">
+
+  </script>
+</body>
+
+</html>
