@@ -1,0 +1,18 @@
+.list-group{
+    text-align: center;
+}
+.time{
+    text-align: center;
+}
+.form{
+    color: red;
+}
+.btn btn-primary mb-2{
+    text-align: center;
+    width:10px;
+
+}
+.form-inline {
+    text-align: center;
+    display: block;
+}
