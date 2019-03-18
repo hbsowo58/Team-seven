@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+    <style>
+    </style>
+</head>
+
+<body>
+    <form action='#' method="POST" id="login">
+
+        <input type="text" id="아디" name="아디" class="a"><br>
+        <input type="password" id="비번"><br>
+        <input type="text" id="이름"><br>
+        <input type="text" name="address" placeholder="도로명 주소 입력" id="address"><br>
+        <a href="#" id="zipcode_search">우편번호 찾기</a><br>
+        <input type="text" id="email"><br>
+        <button name="n" id="n">가입</button>
+    </form>
+    <script>
+        $(function () {
+            var b;
+            $('#zipcode_search').click(function (e) {
+                e.preventDefault
+
+                new daum.Postcode({
+                    oncomplete: function (data) {
+
+                        $('#address').val(data.address)
+                        b = data.jibunAddress;
+                    }
+                }).open();
+            });
+            $('form').submit(function (add) {
+                add.preventDefault();
+                var id = $("#아디").val();
+                var password = $("#비번").val();
+                var name = $(이름).val();
+                var zipcode = $("#address").val();
+                var email = $("#email").val();
+
+                if (id === "") {
+                    alert("아이디를 입력하세요")
+                    return;
+
+                }
+
+                if (password === "") {
+                    alert("비밀번호를 입력하세요")
+                    return;
+                }
+
+                if (name === "") {
+                    alert("이름을 입력하세요")
+                    return;
+                }
+
+                if (zipcode === "") {
+                    alert("주소를 입력하세요")
+                    return;
+                }
+
+                if (email === "") {
+                    alert("이메일을 입력하세요")
+                    return
+                }
+
+
+                if (!(new RegExp(/^(?=.*?[0-9])(?=.*?[a-zA-Z]).{1,}/)).test(login.아디.value)) {
+                    alert("ID는 영숫자 조합만 사용하세요");
+                    login.아디.focus();
+                    var id = "아이디가 없습니다"
+                }
+
+                if (!(new RegExp(/(?=.*\d{1,50})(?=.*[~`!@#$%\^&*()-+=]{1,50})(?=.*[a-zA-Z]{2,50}).{8,50}$/).test(login.비번.value))) {
+                    alert("숫자, 특문 각 1회 이상, 영문은 2개 이상 사용하여 8자리 이상 입력");
+                    login.비번.focus();
+                    var password = "비밀번호가 없습니다"
+                }
+
+                if (!(new RegExp(/^[가-힣a-zA-Z]+$/).test(login.이름.value))) {
+                    alert("한글과 영어만사용가능");
+                    login.이름.focus();
+                    var name = "이름이 없습니다"
+                }
+
+                if (!(new RegExp(/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/).test(login.email.value))) {
+                    alert("이메일형식만 가능");
+                    login.email.focus();
+                    var email = "이메일이 없습니다"
+                }
+
+                if ((new RegExp(/[a-zA-z]/g).test(login.address.value))) {
+                    alert("주소형식만 가능");
+                    login.address.focus();
+                    var address = "주소가 없습니다"
+                }
+
+
+
+
+
+                console.log("아이디는")
+                console.log(id);
+
+                console.log("비번은")
+                console.log(password);
+
+                console.log("이름은")
+                console.log(name);
+
+                console.log("우편번호는");
+                console.log($('#address').val());
+                console.log("주소는");
+                console.log(b);
+
+                console.log("이메일은");
+                console.log(email);
+            });
+        });
+
+
+
+
+    </script>
+</body>
+
+</html>
