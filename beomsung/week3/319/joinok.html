@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+    회원 목록
+    <ul class="userlist">
+        <!-- <li id="na"></li>
+        <li id="id"></li>
+        <li id="pass"></li>
+        <li id="address"></li>
+        <li id="email"></li>
+         -->
+
+    </ul>
+    <button class="load">불러오기</button>
+    <script type="text/javascript">
+        var query = window.location.search.substr(1);
+        var get_data = query.split("&");
+        get_data = decodeURIComponent(get_data);
+        // console.log(get_data);
+
+        // $(function() {
+        // var content = JSON.parse(localStorage.getItem('content'))
+        // console.log(content);
+
+        // for (var key in content) {
+        //     console.log(content[key])
+        //     $('#'+key).text(content[key]);
+        // }
+
+        // })
+
+        $(document).on("click", ".load", function (e) {
+            e.preventDefault();
+            var list = JSON.parse(localStorage.getItem('list'))
+
+            for (var key in list) {
+                //  console.log(list[key])
+                var item1 = "<li>회원 이름:&nbsp" + list[key]["na"] + "</li>"
+                var item2 = "<li>회원아이디:&nbsp" + list[key]["id"] + "</li>"
+                var item3 = "<li>회원비밀번호:&nbsp" + list[key]["pass"] + "</li>"
+                var item4 = "<li>회원주소:&nbsp" + list[key]["address"] + "</li>"
+                var item5 = "<li>회원이메일:&nbsp" + list[key]["email"] + "</li><br/>"
+                $('.userlist').append(item1);
+                $('.userlist').append(item2);
+                $('.userlist').append(item3);
+                $('.userlist').append(item4);
+                $('.userlist').append(item5);
+            }
+            return false;
+        });
+
+    </script>
+</body>
+
+</html>
