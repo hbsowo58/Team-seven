@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Done List</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+    <link rel="stylesheet" href="./dl.css" type="text/css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+    <form action="#" method="post">
+
+        <h4 class="Heading">Done List</h4> 
+
+        <input type="text" name="done" class="bu" id="done">
+
+        <input type="date" value="날짜" class="day" id="date">
+
+        <input type="submit" value="추가" class="bu1">
+
+        <ul class="list">
+
+        </ul>
+
+    </form>
+
+    <button id="save">저장</button>
+    <button id="load">불러오기</button>
+
+    <div class="out">
+        <div class="in">
+            <input type="button" id="button2" value="모두 보기" />
+            <input type="button" id="button3" value="완료 보기" />
+            <input type="button" id="button4" value="진행 보기" />
+        </div>
+    </div>
+
+    <div class="btn">
+    </div>
+    <div onclick="history.back();" class="page_cover"></div>
+    <div id="menu">
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link active" href="/">HOME</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">WORK</a>
+            </li>
+            <li class="nav-item1">
+                <a class="nav-link" href="#">ABOUT</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">contact</a>
+            </li>
+        </ul>
+        <div onclick="history.back();" class="close"></div>
+    </div>
+
+    <br>
+
+    <h1>사용법</h1>
+    <h3>마우스 우클릭하면 완료, 클릭하면 삭제,수정</h3>
+
+    <!-- 자바 스크립트 -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+
+
+        $(document).ready(function () {
+            $('form').submit(function (add) {
+                add.preventDefault();
+
+
+                $('ul').append("<li>" + $("input[name='done']").val() + "</li>");
+                $('ul').append("<li>" + $("input[class='day']").val() + "까지 </li>");  //폼태그에서 submit을 누르면
+                $("input[name='done']").val(""); //한번 택스트 삽입후 클리어                         
+
+            });
+
+
+        });
+
+        $(document).on("contextmenu", "li", function (e) { //새로 생긴 리스트들 우클릭시 색상변경(Done)
+            e.preventDefault()
+            if (confirm("완료하시겠습니까?")) {    //마우스 우클릭을 하면, 완료할거냐고 묻고 완료하면 그 클래스들을
+                $(this).addClass('cn');          //cn으로 변경하는데, 여기서 cn으로 변경되면 완료
+            } else {
+            }
+
+        })
+
+        $(document).on("click", "li", function (e) {  //새로 생긴 리스트들을 클릭할시,  컨펌함수에 그 클릭한 것을 인자로 보낸다.
+            e.preventDefault()
+            save_confirm($(this))
+
+        })
+
+        var save_confirm = function (a)          // 함수호출이 될시, 받은 인자를 a에 저장하고, 삭제할거냐고 물은다음에  
+        {
+            if (confirm('정말 삭제하겠습니까?')) {
+                a.remove();                     //a를 삭제한다.
+            } else {
+                new_confirm(a)                  //아닐시 뉴 컨펌함수에 a인자를 보낸다.
+            }
+        }
+
+        var new_confirm = function (b) {        // 뉴컨펌이 호출되면, 
+            if (confirm('수정하시겠습니까?')) {   //수정할거냐고 묻고
+                var c = prompt("수정할 내용을 입력하세요") //확인누르면 입력받아서 c에저장
+                b.text(c);                   //b받은것을 c로 교체
+
+            } else {
+
+            }
+        }
+
+
+        $('#button2').click(function () { //버튼 2를 누르면, 클래스가 cn인애들, cn이 아닌애들까지 다 보여준다. 여기서 cn은 완료
+
+            $('.cn').show();
+            $('ul li:not(.cn)').show();
+
+
+        });
+
+
+        $('#button3').click(function () {
+
+            $('.cn').show();
+            $('ul li:not(.cn)').hide(); //버튼 3를 누르면, cn클래스애들을 보여주고, cn클래스가 아닌애들을 숨긴다 여기서 cn은 완료
+
+
+        });
+
+        $('#button4').click(function () {
+
+            $('.cn').hide();
+            $('ul li:not(.cn)').show(); //버튼 4를 누르면, cn클래스애들을 숨기고, cn클래스인애들을 보여준다. 여기서 cn은 완료
+
+
+        });
+
+        $(".btn").click(function () {
+            $("#menu,.page_cover,html").addClass("open");
+            window.location.hash = "#open";
+        });
+
+        window.onhashchange = function () {
+            if (location.hash != "#open") {
+                $("#menu,.page_cover,html").removeClass("open");
+            }
+        };
+        $("#save").click(function () {
+            var content = {};
+            for (var i = 1; i <= $(".list li").length; i++) {
+                content[i] = {
+                    todo: $(".list li:nth-child(" + i + ")").text(),
+                    completed: $(".list li:nth-child(" + i + ")").hasClass("cn")
+                };
+                console.log(content);
+            }
+            localStorage.setItem("content", JSON.stringify(content));
+        });
+
+        $("#load").click(function () {
+
+            var form_content = localStorage.getItem("content");
+            var content_dict = decodeURIComponent(form_content);
+            content_dict = JSON.parse(content_dict);
+            console.log(content_dict)
+
+            for (var key in content_dict) {
+                if (content_dict[key].completed === true) {
+                    var item = '<li class="cn">' + content_dict[key].todo + "</li>"
+                } else {
+                    var item = '<li>' + content_dict[key].todo + "</li>"
+                }
+                $(".list").append(item)
+            }
+            return false;
+        });
+    </script>
+</body>
+
+</html>
