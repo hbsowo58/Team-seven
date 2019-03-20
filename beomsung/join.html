@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Title</title>
+
+    <style>
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+</head>
+
+<body>
+
+    <form action='joinok.html' method="GET" id="login">
+
+        <input type="text" id="id" name="id" class="a"><br>
+        <input type="password" name="pass" id="pass"><br>
+        <input type="text" name="na" id="na"><br>
+        <input type="text" name="address" placeholder="도로명 주소 입력" id="address"><br>
+        <a href="#" id="zipcode_search">우편번호 찾기</a><br>
+        <input type="text" name="email" id="email"><br>
+        <input type="submit" id="n" value="가입">
+        <button class="load">불러오기</button>
+    </form>
+    <!-- <button type="button" class="save">저장</button> -->
+
+    <script type="text/javascript">
+        function val() {
+            var id = $("#id").val();
+            var password = $("#pass").val();
+            var name = $("#na").val();
+            var zipcode = $("#address").val();
+            var email = $("#email").val();
+
+            if (id === "") {
+                alert("아이디를 입력하세요");
+                return false;
+            }
+            if (password === "") {
+                alert("비밀번호를 입력하세요");
+                return false;
+            }
+            if (name === "") {
+                alert("이름을 입력하세요");
+                return false;
+            }
+            if (zipcode === "") {
+                alert("주소를 입력하세요");
+                return false;
+            }
+            if (email === "") {
+                alert("이메일을 입력하세요");
+                return false;
+            }
+            if (!(new RegExp(/^(?=.*?[0-9])(?=.*?[a-zA-Z]).{1,}/)).test(login.id.value)) {
+                alert("ID는 영숫자 조합만 사용하세요");
+                login.id.focus();
+                var id = "아이디가 없습니다"
+                return false;
+            }
+            if (!(new RegExp(/(?=.*\d{1,50})(?=.*[~`!@#$%\^&*()-+=]{1,50})(?=.*[a-zA-Z]{2,50}).{8,50}$/).test(login.pass.value))) {
+                alert("비밀번호는 숫자, 특문 각 1회 이상, 영문은 2개 이상 사용하여 8자리 이상 입력");
+                login.pass.focus();
+                var password = "비밀번호가 없습니다"
+                return false;
+            }
+            if (!(new RegExp(/^[가-힣a-zA-Z]+$/).test(login.na.value))) {
+                alert("이름은 한글과 영어만사용가능");
+                login.na.focus();
+                var name = "이름이 없습니다"
+                return false;
+            }
+            if (!(new RegExp(/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/).test(login.email.value))) {
+                alert("이메일은 이메일 형식만 가능");
+                login.email.focus();
+                var email = "이메일이 없습니다"
+                return false;
+            }
+            if ((new RegExp(/[a-zA-z]/g).test(login.address.value))) {
+                alert("주소는 주소형식만 가능");
+                login.address.focus();
+                var address = "주소가 없습니다";
+                return false;
+            }
+            return true;
+        }
+        $(function () {
+            var b;
+            $('#zipcode_search').click(function (e) {
+                e.preventDefault();
+
+                new daum.Postcode({
+                    oncomplete: function (data) {
+
+                        $('#address').val(data.address)
+                        b = data.jibunAddress;
+                    }
+                }).open();
+            });
+
+            $('form').submit(function (add) {
+                add.preventDefault();
+                if (val() == true) {
+                    var content = {};
+                    content['id'] = $("#id").val();
+                    content['pass'] = $("#pass").val();
+                    content['na'] = $("#na").val();
+                    content['address'] = $("#address").val();
+                    content['email'] = $("#email").val();
+                    if (localStorage.getItem("list") == undefined) { //로컬스토리지에 리스트값을 겟해서 리스트가 정의되지않았으면
+                        var list = []                                // 리스트 배열을 만들고
+                        list.push(content)                          //컨텐츠 내용을 리스트에 푸쉬
+                        list = JSON.stringify(list)                 // 변환해주고
+                        localStorage.setItem("list", list)          // 리스트에, 리스트를 셋
+                    } else {
+                        var list2 = JSON.parse(localStorage.getItem("list")); //정의 되어있으면 리스트2선언해서 , 리스트내용을 얻어와 파서한후 리스트 2에 옮기고
+                        list2.push(content);                                 // 리스트2에 내용을 푸쉬
+                        list2 = JSON.stringify(list2)                       // 리스트 2내용 변환
+                        localStorage.setItem("list", list2)                 //리스트 2내용을 리스트라는 이름으로 셋
+                    }
+                    var formData = JSON.stringify(content);                 //내용을 formdata에 저장
+                    localStorage.setItem("content", formData);             //폼데이터를 컨텐츠라는 이름으로 셋
+                    window.history.pushState({ data: { title: "ad" } }, "as", "joinok.html");
+                    window.location.reload();
+                } else {
+                    return;
+                }
+            });
+
+
+            // $(".save").click(function (e) {
+            //     e.preventDefault();
+            //     if (val() == false) {
+            //         return;
+            //     }
+            //     var content = {};
+            //     content['id'] = $("#id").val();
+            //     content['pass'] = $("#pass").val();
+            //     content['na'] = $("#na").val();
+            //     content['address'] = $("#address").val();
+            //     content['email'] = $("#email").val();
+            //     if (localStorage.getItem("list") == undefined) { //로컬스토리지에 리스트값을 겟해서 리스트가 정의되지않았으면
+            //         var list = []                                // 리스트 배열을 만들고
+            //         list.push(content)                          //컨텐츠 내용을 리스트에 푸쉬
+            //         list = JSON.stringify(list)                 // 변환해주고
+            //         localStorage.setItem("list", list)          // 리스트에, 리스트를 셋
+            //     } else {
+            //         var list2 = JSON.parse(localStorage.getItem("list")); //정의 되어있으면 리스트2선언해서 , 리스트내용을 얻어와 파서한후 리스트 2에 옮기고
+            //         list2.push(content);                                 // 리스트2에 내용을 푸쉬
+            //         list2 = JSON.stringify(list2)                       // 리스트 2내용 변환
+            //         localStorage.setItem("list", list2)                 //리스트 2내용을 리스트라는 이름으로 셋
+            //     }
+            //     var formData = JSON.stringify(content);                 //내용을 formdata에 저장
+            //     localStorage.setItem("content", formData);             //폼데이터를 컨텐츠라는 이름으로 셋
+            //     return false;
+            // });
+
+            $(document).on("click", ".load", function (e) {
+                e.preventDefault();
+                var form_content = localStorage.getItem("content");
+                form_content = decodeURIComponent(form_content);
+                var content_dict = JSON.parse(form_content);
+
+                for (var key in content_dict) {
+                    $('#' + key).val(content_dict[key]);
+
+                }
+                return false;
+            });
+        })
+    </script>
+</body>
+
+</html>
