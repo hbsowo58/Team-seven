@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title> Title</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <span id="span_test">test</span>
+
+     <script type="text/javascript">
+    // var a = document.getElementById('ele_id');
+    // a.click(function(){});  //안됌, a가 j쿼리 객체가 안됨 (포장지가 없는상태)
+    // var b = $('#id');
+    // b.click(function(){}); //어떻게 j쿼리로 포장가능?
+
+    // var c = $('a');
+    // c.click(function(){});
+
+    var value1 = "1";
+
+    value2 = "2";
+
+    $(function(){
+        var elem = $("<p id='p_test'>test_p</p>");
+        elem.click(function(){alert('p click')});
+        var elem2 = $("<p id='p_test2'>test_p2</p>");
+
+
+        $('#span_Test').append(elem);
+        $('#span_Test').append(elem2);
+        
+        elem2.clcik(function(){alert('p2 click')});
+
+        var elem3 = $("<p id='p_test3'>test_p3</p>");
+        $(elem3).clcik(function(){alert('p2 click')});
+        $('#span_Test').append(elem3);
+        $('#p_test3').click(function(){alert('after p3 click')});
+
+        var elem4 = $("<p id='p_test4'>test_p4</p>");
+        $(elem4).clcik(function(){alert('p4 click')});
+        $('#span_Test').append(elem4);
+        $('#p_test4').click(function(){alert('after p4 click')});
+
+        //마커 변수를 만들고
+        //그 변수에 이벤트 리스너 걸기
+        
+    });
+
+    </script>
+</body>
+
+</html>
